@@ -174,6 +174,25 @@ class HomeController extends Controller
 
         return view('login', $data, compact('langs'));
     }
+    public function register()
+    {
+        if (session()->has('lang')) {
+            $currentLang = Language::where('code', session()->get('lang'))->first();
+        } else {
+            $currentLang = Language::where('is_default', 1)->first();
+        }
+        $data['currentLang'] = $currentLang;
+        $lang_id = $currentLang->id;
+        $langs = Language::all();
+
+        $data['headerfooter'] = HeaderFooterSetting::find($lang_id);
+        $data['setting'] = Setting::find($lang_id);
+        $data['menus'] = Menu::where('language_id', $lang_id)->get();
+        $data['posts'] = Post::where('language_id', $lang_id)->get();
+        $data['blogsettings'] = BlogSetting::find($lang_id);
+
+        return view('register', $data, compact('langs'));
+    }
 
     public function pricing()
     {

@@ -195,16 +195,20 @@
                     @endif
 
                 </div>
+{{--                @guest--}}
 
                 <div class="header__action header__action--signin">
                     <a class="header__action-btn header__action-btn--start-project" href="{{$headerfooter->sidebar_description}}">
                         <span>
                             {{-- {{$headerfooter->sidebar_title}} --}}
-                            login
+                            {{ auth()->user()->name }}
 
                         </span>
                     </a>
                 </div>
+{{--                @endguest--}}
+
+
             </div>
 
             <button class="header__btn__venor" type="button">

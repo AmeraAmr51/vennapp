@@ -48,26 +48,20 @@ use App\Http\Controllers\OrderController;
 
 
 
-Auth::routes(['login' => false]);
+Auth::routes();
 Route::group(['middleware' => 'setlang'], function () {
 
 
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
-
-
     Route::get('/search', [HomeController::class, 'search'])->name('search');
-
-
-
-
     Route::get('/changelanguage/{lang}', [HomeController::class, 'changeLanguage'])->name('changeLanguage');
-
     Route::get('/about-us', [HomeController::class, 'about'])->name('about');
     Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
     Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
     Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
     Route::get('/login', [HomeController::class, 'login'])->name('login');
+    Route::get('/register', [HomeController::class, 'register'])->name('register');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::post('/contact', [HomeController::class, 'contactPost'])->name('contactPost');
     Route::get('/video', [HomeController::class, 'video'])->name('video');

@@ -6,8 +6,6 @@
 
 @section('content')
 
-
-
     <div class="slider-venor-section">
         <div class="slider-venor owl-carousel">
 
