@@ -38,8 +38,6 @@ class HomeController extends Controller
     {
         session()->put('lang', $lang);
         app()->setLocale($lang);
-
-
         return redirect()->back();
     }
     /**

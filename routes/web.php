@@ -51,8 +51,6 @@ use App\Http\Controllers\OrderController;
 Auth::routes();
 Route::group(['middleware' => 'setlang'], function () {
 
-
-
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
     Route::get('/changelanguage/{lang}', [HomeController::class, 'changeLanguage'])->name('changeLanguage');

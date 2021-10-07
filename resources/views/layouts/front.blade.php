@@ -195,8 +195,18 @@
                     @endif
 
                 </div>
-{{--                @guest--}}
+                @guest
+                <div class="header__action header__action--signin">
+                    <a class="header__action-btn header__action-btn--start-project" href="{{ route('login') }}">
+                        <span>
+                            {{-- {{$headerfooter->sidebar_title}} --}}
+                            Login
 
+                        </span>
+                    </a>
+                </div>
+                @endguest
+                @auth
                 <div class="header__action header__action--signin">
                     <a class="header__action-btn header__action-btn--start-project" href="{{$headerfooter->sidebar_description}}">
                         <span>
@@ -206,7 +216,7 @@
                         </span>
                     </a>
                 </div>
-{{--                @endguest--}}
+                @endauth
 
 
             </div>
